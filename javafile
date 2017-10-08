@@ -1,0 +1,101 @@
+/**  
+	 Author: CLEMENT MINDJIMBA
+   
+	 OCTOBER 5th, 2015
+
+*/
+
+
+import java.util.Scanner;  // Import.
+public class a1q4
+{
+		public static void main(String[] args)
+		{
+			Scanner input = new Scanner(System.in);
+									
+			System.out.println("Enter the letter of your plan (A,B or C): ");
+			String plan = input.nextLine();
+			
+			
+			if (plan.equals("A") || plan.equals("a"))
+			{}
+			else if (plan.equals("B") || plan.equals("b"))
+			{}
+			else if (plan.equals("C") || plan.equals("c"))
+			{}
+			
+			
+			System.out.println("Enter the amount of data you used (in GB): ");
+			double gb = input.nextDouble();	
+			
+			double cost = 0;
+			int overCharge = 0;
+			
+			int costA = 30;
+			int costB = 40;
+			int costC = 65;
+			int overChargeA = 0;
+			int overChargeB = 0;
+			int overChargeC = 0;
+			
+			//If the user enter less than 0 GB.
+			if (gb <= 0)
+			{
+				System.out.println("ERROR GB MUST BE POSITIVE. GOOD TRY THOUGH.");
+				System.exit(0);
+			}
+			
+			//Calculate the math for plan A.
+			if (gb > 0.25)
+			{
+				overChargeA = (int)((gb - 0.25) / 0.25);
+			} 
+			costA += overChargeA * 10;
+			
+			//Calculate the math for plan B.
+			if (gb > 1)
+			{
+				overChargeB = (int)((gb - 0.5) / 0.5);
+			} 
+			costB += overChargeB * 10;
+			
+			//Calculate the math for plan C.			
+			if (gb > 6)
+			{
+				overChargeC = (int)(gb - 1);
+			} 	
+			costC += (overChargeC * 10);
+			
+			
+			//Output total charges.
+			if (plan.equalsIgnoreCase("A"))
+			{
+				System.out.println("Your total charges are: " + costA + "!");	
+			}
+			else if (plan.equalsIgnoreCase("B"))
+			{
+				System.out.println("Your total charges are: " + costB + "!");
+			}
+			else if (plan.equalsIgnoreCase("C"))
+			{
+				System.out.println("Your total charges are: " + costC + "!");	
+			}
+	
+			//Output how much the user could have saved.
+			if (plan.equalsIgnoreCase("A") && costA > costB)
+			{	
+				System.out.println("You could have saved $" + (int)(costA - costB) + " with plan B...");	
+			}
+			if (plan.equalsIgnoreCase("A") && costA > costC)
+			{
+				System.out.println("You could have saved $" + (int)(costA - costC) + " with plan C...");
+			}
+			if (plan.equalsIgnoreCase("B") && costB > costC)
+			{	
+				System.out.println("You could have saved $" + (int)(costB - costC) + " with plan C...");
+			}			
+		}			
+}
+
+
+
